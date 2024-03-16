@@ -1,0 +1,67 @@
+// insert Many records model.create()
+
+// let arrayOfPeople = [
+//     {
+//         name: "Mary",
+//         age: 28,
+//         favorateFood: ["dark chocolate", "green food", "smothies"],
+//     },
+//     {
+//         name: "Houda",
+//         age: 15,
+//         favorateFood: ["Chips", "Cack", "Soupe"],
+//     },
+//     { name: "Salima", age: 24, favorateFood: ["Tous"] },
+// ];
+
+// // create
+async function createPeople() {
+  try {
+    const createdPeople = await Person.create(arrayOfPeople);
+    // console.log('Created people:', createdPeople);
+    // Handle the created people, maybe send a success response
+  } catch (err) {
+    console.error(err); // Log the error
+    // Handle the error, maybe send an error response
+  }
+}
+
+// createPeople();
+
+// find
+
+// Person.find().then(docs=>{"All",console.log(docs);})
+
+// find one element ?
+// findOne () findById()
+
+// Person
+//     .findOne({ favorateFood: 'green food' })
+//     .then((doc) => {
+//         console.log(doc);
+//     })
+//     .catch((err) => console.error(err));
+
+// // remove all
+
+// Person.deleteMany({})
+
+// update
+
+Person.findByIdAndUpdate("65ec64ed8dcfa356a32d0c65", {
+  name: "Amine",
+}).then((updateddoc) => {
+  console.log("updated doc", updateddoc);
+});
+
+console.log("---------------------------------------------");
+
+Person.findById({ _id: "65ec64ed8dcfa356a32d0c66" }).then((doc) => {
+  doc.name = "amina";
+  doc.save();
+  console.log(doc);
+});
+
+// remove attribute
+
+// delete , delete Many documents
